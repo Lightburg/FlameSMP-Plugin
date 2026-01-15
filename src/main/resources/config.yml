@@ -1,0 +1,113 @@
+# FlameSMP Configuration
+
+# Lives System
+lives:
+  starting-lives: 5
+  max-lives: 10
+  ban-at-zero: true
+  ban-message: "&cYou have been consumed by the flames. Your fire has extinguished."
+
+# Trust System
+trust:
+  max-trusted-players: 4
+
+# Essence Limits
+essences:
+  max-per-type: 2
+  fire-count: 0
+  lava-count: 0
+  lightning-count: 0
+  magma-count: 0
+  plasma-count: 0
+  light-count: 0
+  
+  # Fire Essence
+  fire:
+    ring-cooldown: 60
+    burn-cooldown: 60
+    burn-duration: 40
+    ring-radius: 10
+    burn-radius: 30
+    knockback-distance: 20
+  
+  # Lava Essence
+  lava:
+    block-cooldown: 60
+    wall-cooldown: 90
+    block-radius: 25
+    block-duration: 15
+    pool-size: 8
+    wall-size: 3
+    wall-distance: 10
+    fire-resistance-duration: 30
+  
+  # Lightning Essence
+  lightning:
+    strike-cooldown: 60
+    storm-cooldown: 120
+    strike-radius: 25
+    strike-damage: 8.0
+    storm-duration: 30
+    storm-size: 30
+  
+  # Magma Essence
+  magma:
+    meteor-cooldown: 120
+    rocks-cooldown: 120
+    meteor-radius: 30
+    meteor-damage: 4.0
+    rock-count: 5
+    rock-damage: 4.0
+  
+  # Plasma Essence
+  plasma:
+    overload-cooldown: 90
+    overheat-cooldown: 60
+    overload-charge-time: 5
+    overload-damage: 10.0
+    overload-knockback: 5
+    overload-radius: 5
+    overheat-duration: 25
+    overheat-strength: 2
+    overheat-speed: 2
+  
+  # Light Essence
+  light:
+    flash-cooldown: 60
+    beam-cooldown: 60
+    flash-radius: 10
+    flash-duration: 5
+    beam-damage: 8.0
+    beam-range: 30
+
+# Passive Abilities
+passives:
+  thermal-momentum:
+    sprint-time-required: 10
+    speed-level: 1
+  scorch-skin:
+    health-threshold: 0.4
+    damage: 2.0
+    fire-duration: 60
+  lavaborn:
+    extra-hearts: 2
+  ember-recovery:
+    regen-interval: 40
+    regen-amount: 1
+  heat-pressure:
+    hits-required: 15
+    bonus-damage: 4.0
+  pyro-adrenaline:
+    max-speed-level: 2
+  solar-charged:
+    haste-level: 1
+
+# Messages
+messages:
+  life-lost: "&c-1 Life! &7You now have &e{lives} &7lives remaining."
+  life-gained: "&a+1 Life! &7You now have &e{lives} &7lives remaining."
+  heat-max: "&6Your heat has reached maximum! &eNext hit deals bonus damage!"
+  ability-cooldown: "&cThis ability is on cooldown! &7({time}s remaining)"
+  not-trusted: "&cThis player is not on your trusted list!"
+  trust-added: "&aYou now trust &e{player}&a!"
+  trust-removed: "&cYou no longer trust &e{player}&c!"

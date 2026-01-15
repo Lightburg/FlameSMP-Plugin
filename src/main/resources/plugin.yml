@@ -1,0 +1,29 @@
+name: FlameSMP
+version: 1.0.0
+main: net.flamesmp.plugin.FlameSMP
+api-version: '1.21'
+description: A flame-based SMP plugin with lives, heat levels, and essence abilities
+author: FlameSMP Team
+
+commands:
+  flame:
+    description: Main player command for FlameSMP
+    usage: /<command> [subcommand]
+    aliases: [f, flames]
+  flameadmin:
+    description: Admin commands for FlameSMP
+    usage: /<command> [subcommand]
+    permission: flamesmp.admin
+    aliases: [fadmin, fa]
+  withdraw:
+    description: Withdraw a life as an item
+    usage: /<command>
+    aliases: [withdrawlife]
+
+permissions:
+  flamesmp.admin:
+    description: Allows access to admin commands
+    default: op
+  flamesmp.bypass.ban:
+    description: Bypass death ban when reaching 0 lives
+    default: op
