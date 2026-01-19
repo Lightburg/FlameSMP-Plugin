@@ -12,6 +12,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.BanList.Type;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.Statistic;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -47,6 +48,8 @@ public class FlameAdminCommand implements CommandExecutor, TabCompleter {
 
                     this.setLives(sender, args[1], args[2]);
                     break;
+                case "deathstats":
+                    this.invinciblePlayers(sender);
                 case "addlives":
                     if (args.length < 3) {
                         sender.sendMessage(ChatColor.RED + "Usage: /flameadmin addlives <player> <amount>");
@@ -171,6 +174,7 @@ public class FlameAdminCommand implements CommandExecutor, TabCompleter {
         sender.sendMessage(ChatColor.YELLOW + "/flameadmin unban <player>");
         sender.sendMessage(ChatColor.YELLOW + "/flameadmin revive <player>");
         sender.sendMessage(ChatColor.YELLOW + "/flameadmin info <player>");
+        sender.sendMessage(ChatColor.YELLOW + "/flameadmin deathstats");
         sender.sendMessage(ChatColor.YELLOW + "/flameadmin clearcooldown <player> [ability]");
         sender.sendMessage(ChatColor.YELLOW + "/flameadmin useability <player> <essence> [slot]");
         sender.sendMessage(ChatColor.YELLOW + "/flameadmin reload");
@@ -193,6 +197,18 @@ public class FlameAdminCommand implements CommandExecutor, TabCompleter {
             } catch (NumberFormatException var7) {
                 sender.sendMessage(ChatColor.RED + "Invalid number!");
             }
+        }
+    }
+
+    private void invinciblePlayers(CommandSender p){
+        String s = "";
+        for(OfflinePlayer op : Bukkit.getOfflinePlayers()){
+            if(op.getStatistic(Statistic.DEATHS) == 0){
+                s += ChatColor.YELLOW + op.getName() + "\n";
+            }
+        }
+        if(s.length() < 3){
+            p.sendMessage(ChatColor.YELLOW + "There are no invincible players");
         }
     }
 
@@ -428,7 +444,7 @@ public class FlameAdminCommand implements CommandExecutor, TabCompleter {
             return completions;
         } else {
             if (args.length == 1) {
-                for (String sub : Arrays.asList("help", "setlives", "addlives", "setflame", "giveessence", "giveshard", "resetessence", "unban", "revive", "info", "reload", "clearcooldown", "useability", "givesolarsword", "givereviveitem"
+                for (String sub : Arrays.asList("help", "deathstats", "setlives", "addlives", "setflame", "giveessence", "giveshard", "resetessence", "unban", "revive", "info", "reload", "clearcooldown", "useability", "givesolarsword", "givereviveitem"
                 )) {
                     if (sub.toLowerCase().startsWith(args[0].toLowerCase())) {
                         completions.add(sub);
