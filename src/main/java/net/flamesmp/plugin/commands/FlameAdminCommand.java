@@ -50,6 +50,7 @@ public class FlameAdminCommand implements CommandExecutor, TabCompleter {
                     break;
                 case "deathstats":
                     this.invinciblePlayers(sender);
+                    break;
                 case "addlives":
                     if (args.length < 3) {
                         sender.sendMessage(ChatColor.RED + "Usage: /flameadmin addlives <player> <amount>");

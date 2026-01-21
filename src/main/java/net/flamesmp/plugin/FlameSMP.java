@@ -1,6 +1,5 @@
 package net.flamesmp.plugin;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import net.flamesmp.plugin.commands.FlameAdminCommand;
@@ -11,13 +10,7 @@ import net.flamesmp.plugin.essences.Essence;
 import net.flamesmp.plugin.essences.EssenceAbilities;
 import net.flamesmp.plugin.essences.EssenceManager;
 import net.flamesmp.plugin.items.FlameItems;
-import net.flamesmp.plugin.listeners.CombatListener;
-import net.flamesmp.plugin.listeners.EssenceListener;
-import net.flamesmp.plugin.listeners.ItemListener;
-import net.flamesmp.plugin.listeners.PassiveAbilityListener;
-import net.flamesmp.plugin.listeners.PassiveAbilityManager;
-import net.flamesmp.plugin.listeners.PlayerDeathListener;
-import net.flamesmp.plugin.listeners.PlayerJoinListener;
+import net.flamesmp.plugin.listeners.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -63,6 +56,7 @@ public class FlameSMP extends JavaPlugin {
       Bukkit.getPluginManager().registerEvents(new EssenceListener(this), this);
       Bukkit.getPluginManager().registerEvents(new CombatListener(this), this);
       Bukkit.getPluginManager().registerEvents(new ItemListener(this), this);
+      Bukkit.getPluginManager().registerEvents(new BrewListener(), this);
    }
 
    private void registerCommands() {
